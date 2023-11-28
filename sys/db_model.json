@@ -1,0 +1,67 @@
+{ 
+    "Users": {
+        "id": "",
+        "name": "",
+        "email": "",
+        "password": "",
+        "adress": {
+            "street": "",
+            "number": "",
+            "neighborhood": "",
+            "city": "",
+            "state": ""
+        }
+    },
+    "Sellers": {
+        "id": "",
+        "name": "",
+        "cnpj": "",
+        "products": [
+            {
+                "prod_id": "",
+                "prod_name": "",
+                "prod_price": ""
+            }
+        ]
+    },
+    "Products": {
+        "id": "",
+        "name": "",
+        "description": "",
+        "price": "",
+        "quantity_left": "",
+        "quantity_sold": "",
+        "seller": {
+            "seller_id": "",
+            "seller_name": "",
+            "seller_cnpj": ""
+        }
+    },
+    "Favorites": {
+        "user_id": "",
+        "user_name": "",
+        "products": [{
+            "prod_id": "",
+            "prod_name": "",
+            "description": "",
+            "price": ""
+        }]
+    },
+    "Buys": {
+        "id": "",
+        "user_id": "",
+        "user_name": "",
+        "products":[
+            {
+                "prod_id": "",
+                "prod_name": "",
+                "description": "",
+                "date": "",
+                "price": "",
+                "quantity": "",
+                "prod_total": ""
+            }
+        ],
+        "final_price": ""
+    }
+}
