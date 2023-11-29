@@ -3,7 +3,7 @@ from pymongo.server_api import ServerApi
 
 # import funcs from funcs.py
 
-uri = "mongodb+srv://admin:admin@cluster0.x4apknn.mongodb.net/?retryWrites=true&w=majority"  #
+uri = ""  #
 
 # Create a new client and connect to the server
 client = MongoClient(uri, server_api=ServerApi("1"))

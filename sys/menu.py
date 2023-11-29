@@ -14,12 +14,15 @@ while systemOn:
     login = input("Select your option: ")
 
     if login == "1":  # User Login
+        print("Welcome User!")
         funcsMenu.UserMenu()
 
     elif login == "2":  # Seller Login
+        print("Welcome Seller!")
         funcsMenu.SellerMenu()
 
     elif login == "3":  # Admin Login
+        print("Welcome Admin!")
         funcsMenu.AdminMenu()
 
     elif login == "0":  # System Exit

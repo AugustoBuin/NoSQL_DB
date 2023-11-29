@@ -16,30 +16,38 @@ def UserMenu():
         print("3 - Buy something")
         print("4 - See your favorites")
         print("5 - See your last purchases")
+        print("6 - Delete yourself")
         print("0 - Leave")
         print(" ")
 
         userChoice = input("Select your option: ")
         if userChoice == "1":
             print(" ")
-            # funcsUsers.Read_user()
-            print("Read User")
+            email = input("Enter the user email: ")
+            funcsUsers.Read_user(email)
+            # print("Read_user")
         elif userChoice == "2":
             print(" ")
-            # funcsUsers.Update_user()
-            print("Update User")
+            email = input("Enter the email: ")
+            funcsUsers.Update_user(email)
+            # print("Update_user")
         elif userChoice == "3":
             print(" ")
             # funcsBuys.Buying_case()  # dev!!
-            print("Buying Case")
+            print("Buying_case")
         elif userChoice == "4":
             print(" ")
             # funcsFavs.Read_favorites()
-            print("Read Favs")
+            print("Read_favorites")
         elif userChoice == "5":
             print(" ")
             # funcsBuys.Read_buys()
-            print("Read Buys")
+            print("Read_buys")
+        elif userChoice == "6":
+            print(" ")
+            email = input("Enter the email: ")
+            funcsUsers.Delete_user(email)
+            # print("Delete_user")
         elif userChoice == "0":
             userMenu = False
             break
@@ -121,6 +129,3 @@ def AdminMenu():
             print("Invalid Option")
             print(" ")
 
-
-#
-#

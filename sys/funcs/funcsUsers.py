@@ -8,10 +8,18 @@ def Create_user():
     global db
     mycol = db.users
     print("\nInserting a new User")
-    name = input("Full Name: ")
-    email = input("Email: ")
-    password = input("Password: ")
 
+    # Email needs to be unique
+    while True:
+        email = input("Email: ")
+        if len(mycol.find({"email": email})) > 0:
+            print("This email is already been used! Choose another email. ")
+            email = input("Email: ")
+        else:
+            break
+
+    name = input("Full Name: ")
+    password = input("Password: ")
     street = input("Street: ")
     number = input("Number: ")
     neighborhood = input("Neighborhood: ")
@@ -26,7 +34,7 @@ def Create_user():
     }
     mydoc = {"name": name, "email": email, "password": password, "adress": adress}
     insert = mycol.insert_one(mydoc)
-    print("Document inserted with ID ", insert.inserted_id)
+    print("Document inserted! ")
     print(" ")
 
 
@@ -43,12 +51,16 @@ def Read_user(email):
     global db
     mycol = db.users
     print(" ")
-    print("Found User: ")
 
+    # select user if exists
     myquery = {"email": email}
-    mydoc = mycol.find(myquery)
-    for usr in mydoc:
-        print(usr)
+    mydoc = mycol.find_one(myquery)
+    if mydoc == None:
+        print("No users found")
+    else:
+        print("User Found: ")
+        print("Name: ", mydoc["name"], "Email: ", mydoc["email"])
+        print("Adress: ", mydoc["adress"])
 
 
 def Update_user(email):
@@ -59,16 +71,13 @@ def Update_user(email):
     print("User data: ", mydoc)
 
     name = input("Change name:")
-    if len(name):
-        mydoc["name"] = name
+    mydoc["name"] = name
 
     email = input("Change email:")
-    if len(email):
-        mydoc["email"] = email
+    mydoc["email"] = email
 
     password = input("Change password:")
-    if len(password):
-        mydoc["password"] = password
+    mydoc["password"] = password
 
     adress = {}
     street = input("Change Street: ")
@@ -83,8 +92,7 @@ def Update_user(email):
         "city": city,
         "state": state,
     }
-    if len(adress):
-        mydoc["adress"] = adress
+    mydoc["adress"] = adress
 
     newvalues = {"$set": mydoc}
     mycol.update_one(myquery, newvalues)
